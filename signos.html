@@ -1,0 +1,109 @@
+<!--
+    HOME
+    SOBRE
+        https://www.elle.com/horoscopes/a44272828/what-is-astrology/
+    SIGNOS
+    PLANETAS
+        https://www.astrology.com/planets
+    TAROT
+        TAROT_DESTINO
+        https://www.astrology.com/tarot/yes-no.html
+        https://www.astrology.com/tarot/daily.html
+    CONTATO
+
+    --PALETA--
+    cinza: #1A151E;
+    rosa: #F24B78;
+    azul blueberry: #495ABF;
+    azul marinho: #182859;
+    azul: #305AD9;
+    laranja: #F29D52;
+    
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Astrologia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="igor">
+    <meta name="keywords" content="horoscopo, astrologia, signos, tarot, destino">
+    <meta name="description" content="site onde voce pode encontrar tudo sobre horoscopos, signos, e o seu destino">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+<body>
+    <header id="no-clipping-header">
+        <ul>
+            <a href="index.html" id="icon"><li><img src="files/icon.svg" alt="icon" height="60px"></li></a>
+            <a href="sobre.html" id="about"><li>sobre</li></a>
+            <a href="signos.html" id="signs"><li>signos</li></a>
+            <!--<a href="planetas.html" id="planets"><li>planetas</li></a>-->
+            <a href="tarot.html" id="tarot"><li>tarot</li></a>
+            <a href="contato.html" id="contact"><li>contato</li></a>
+        </ul>
+    </header>
+    <main>
+        <div id="astrosign-container">
+            <ul id="circle">
+                <div id="sign-wheel">
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+                    <li><div class="backdrop"></div></li>
+
+                    <div class="circle-cover" id="cover1"></div>
+                    <div class="circle-cover" id="cover2"></div>
+                </div>
+
+                <div id="sign-images">
+                    <div class="sign" id="aries" onclick="getValues('aries')"><img src="files/signs/aries.svg" alt="signo"></div>
+                    <div class="sign" id="aquarius" onclick="getValues('aquarius')"><img src="files/signs/aquarius.svg" alt="signo"></div>
+                    <div class="sign" id="cancer" onclick="getValues('cancer')"><img src="files/signs/cancer.svg" alt="signo"></div>
+                    <div class="sign" id="capricorn" onclick="getValues('capricorn')"><img src="files/signs/capricorn.svg" alt="signo"></div>
+                    <div class="sign" id="gemini" onclick="getValues('gemini')"><img src="files/signs/gemini.svg" alt="signo"></div>
+                    <div class="sign" id="leo" onclick="getValues('leo')"><img src="files/signs/leo.svg" alt="signo"></div>
+                    <div class="sign" id="libra" onclick="getValues('libra')"><img src="files/signs/libra.svg" alt="signo"></div>
+                    <div class="sign" id="pisces" onclick="getValues('pisces')"><img src="files/signs/pisces.svg" alt="signo"></div>
+                    <div class="sign" id="sagittarius" onclick="getValues('sagittarius')"><img src="files/signs/sagittarius.svg" alt="signo"></div>
+                    <div class="sign" id="scorpio" onclick="getValues('scorpio')"><img src="files/signs/scorpio.svg" alt="signo"></div>
+                    <div class="sign" id="taurus" onclick="getValues('taurus')"><img src="files/signs/taurus.svg" alt="signo"></div>
+                    <div class="sign" id="virgo" onclick="getValues('virgo')"><img src="files/signs/virgo.svg" alt="signo"></div>
+                </div> 
+            </ul>
+            
+
+            <hr color="#151a24">
+            
+            <div id="info-card">
+                <div id="info-title"><img src="files/star.svg" alt="signo" id="info-symbol"><span id="info-title-header">Escolha um signo</span></div>
+                <div class="info-text" id="info-definition"></div>
+                <div class="info-text" id="info-description"></div>
+        </div>
+        
+    </main>
+    
+    <footer>
+        <div class="text">Igor Tunner 2024 &copy; Todos os direitos reservados<br>
+            Trabalho sem fins lucrativos
+        </div>
+        <div class="anchor">
+            <a href="#"><img src="files/signs/sagittarius.svg" alt="anchor" height="50px"></a>
+        </div>
+    </footer>
+</body>
+</html>
