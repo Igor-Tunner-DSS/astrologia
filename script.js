@@ -4,7 +4,7 @@ function redirect(){
 
 document.addEventListener('DOMContentLoaded', function() {
     // Check if the current page URL matches a specific pattern
-    if (window.location.pathname === ('/tarot_destino.html')) {
+    if (window.location.pathname === '/tarot_destino.html' || window.location.href === 'https://igor-tunner-dss.github.io/igor/tarot_destino.html') {
         tarot_destiny();
     }
 });
