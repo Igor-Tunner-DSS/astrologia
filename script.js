@@ -3,8 +3,8 @@ function redirect(){
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if the current page URL matches a specific pattern
-    if (window.location.pathname === '/tarot_destino.html' || window.location.href === 'https://igor-tunner-dss.github.io/igor/tarot_destino.html') {
+    // Check if the current path is for this file
+    if (/tarot_destino.html/.test(window.location.pathname)) {
         tarot_destiny();
     }
 });
@@ -113,12 +113,10 @@ function tarot_destiny(){
     if(decision === 0){
         choice = Math.floor(Math.random() * 5);
         choice = yes_cards[choice];
-        console.log(choice);
     }
     else if(decision === 1){
         choice = Math.floor(Math.random() * 5);
         choice = no_cards[choice];
-        console.log(choice);
     }
 
     document.getElementById("destiny-header").textContent = choice["title"];
