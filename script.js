@@ -66,9 +66,10 @@ var sign_translation = {
 }
 
 function getValues(sign){
-    document.getElementById("info-title-header").textContent = sign_translation[sign].charAt(0).toUpperCase() + sign_translation[sign].slice(1);
-    document.getElementById("info-symbol").src = `files/signs/${sign}.svg`;
+    var sign_name = sign_translation[sign].charAt(0).toUpperCase() + sign_translation[sign].slice(1); // get translated sign, then capitalize it
+    document.getElementById("info-title-header").textContent = sign_name;
 
+    document.getElementById("info-symbol").src = `files/signs/${sign}.svg`;
     document.getElementById("info-definition").textContent = sign_definitions[sign];
     document.getElementById("info-description").textContent = sign_descriptions[sign];
 }
@@ -111,11 +112,11 @@ function tarot_destiny(){
     var decision = Math.floor(Math.random() * 2); // returns 0 or 1
 
     if(decision === 0){
-        choice = Math.floor(Math.random() * 5);
+        choice = Math.floor(Math.random() * yes_cards.length);
         choice = yes_cards[choice];
     }
     else if(decision === 1){
-        choice = Math.floor(Math.random() * 5);
+        choice = Math.floor(Math.random() * no_cards.length);
         choice = no_cards[choice];
     }
 
