@@ -1,0 +1,943 @@
+$background-color: #0d111a;
+$text-color: aliceblue;
+
+// PALETA
+$gray: #1A151E;
+$pink: #F24B78;
+$blueberry: #495ABF;
+$marine-blue: #182859;
+$blue: #305AD9;
+$orange: #F29D52;
+$purple: #AF47D2;
+$transparent-white: #f0f8ffd8;
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #151b29;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        background-color: $gray;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-image: -webkit-gradient(linear,
+                                        left bottom,
+                                        left top,
+                                        color-stop(0.44, #2e568f),
+                                        color-stop(0.72, #9431a8),
+                                        color-stop(0.86, #302599))
+    }
+
+}
+
+body {
+    background-color: $background-color;
+    overflow-x: hidden;
+    font-size: 1.5rem;
+    font-family: poppins, consolas;
+    color: azure;
+    margin: 0;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000000ab;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    padding: 0 10vw;
+    z-index: 999;
+
+    ul {
+        display: flex;
+        justify-content: center;
+        column-gap: 0.5rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    a {
+        text-decoration: none;
+        text-transform: capitalize;
+
+        :hover {
+            transform: translateY(-6px);
+        }
+    }
+
+    li {
+        list-style-type: none;
+        margin: 20px 0;
+        height: auto;
+        line-height: 60px;
+        width: 200px;
+        text-align: center;
+        text-decoration: none;
+        color: $text-color;
+        transition: 0.4s;
+        
+    }
+
+    #icon {
+        position: relative;
+        margin-right: auto;
+
+        img {
+            filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%); // color: aliceblue // https://codepen.io/sosuke/pen/Pjoqqp
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        
+        }
+
+        li {
+            height: fit-content;
+        }
+    }
+
+    #about {:hover {color: $blue;}}
+
+    #signs{:hover {color: $pink;}}
+
+    #planets{:hover {color: $blueberry;}}
+
+    #tarot {:hover {color: $purple;}}
+
+    #contact {
+        margin-left: auto;
+
+        li {
+            border-radius: 30px;
+            background-color: $text-color;
+            color: $marine-blue;
+        }
+
+        :hover {
+                background-color: $orange;
+                color: $text-color;
+            }
+    }
+}
+#no-clipping-header{
+    position: sticky;
+}
+
+hr {margin: 0 30px;}
+
+main {
+    flex: 1;
+    min-height: 80vh;
+
+    #hero-section {
+        width: 100vw;
+        height: 90vh;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    #image-section {
+        padding: 0 10vw;
+        background-color: #0000002d;
+        
+
+        div {
+            display: flex;
+            gap: 5vw;
+    
+            img {
+                flex-basis: 30%;
+                max-width: 25vw;
+                margin: 30px;
+                object-fit: contain;
+                border-radius: 10px;
+                user-select: none;
+                pointer-events: none;
+                box-shadow: 0 0 40px black;
+            }
+    
+            .text-section {
+                flex: 1;
+                display: flex;
+                gap: 0;
+                flex-direction: column;
+                color: azure;
+                padding: 10px 0 5vw;
+                line-height: 2.5rem;
+    
+                #section1-header {
+                    font-size: clamp(1.5rem, 2vw, 3rem);
+                    text-align: center;
+                    height: 3rem;
+                    line-height: 3rem;
+                    margin: 80px 0;
+                    @media only screen and (orientation: portrait) {
+                        margin: 0 0 80px;
+                    }
+                    text-wrap: nowrap;
+                    text-decoration: underline $pink;
+                }
+    
+                #section1-text {
+                    font-family: bitter, poppins, consolas;
+                }
+            }
+        }
+        
+        #section2 {
+            @media only screen and (orientation: landscape) {
+                flex-direction: row-reverse;
+            }
+            margin-bottom: 30px;
+            #section1-header{text-decoration-color: $orange;}
+
+            img {width: 50%;}
+        }
+        
+        @media only screen and (orientation: portrait) {
+            div {flex-direction: column; align-items: center;}
+            ~ #card-section .card span{display: none;}
+        }
+    }
+
+
+    #card-section {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+        gap: 3rem;
+
+        #card-text {
+            color: $text-color;
+            font-family: bitter, poppins, consolas;
+            max-width: 70vw;
+            margin: 0 auto;
+            font-size: clamp(20px, 2vw, 2rem);
+            font-weight: 500;
+            font-style: italic;
+
+            span {text-align: center;}
+        }
+
+        #card-header {
+            color: $orange;
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+
+        #cards {
+            padding: 0 10vw;
+            display: flex;
+            justify-content: space-evenly;
+
+            a {
+                text-decoration: none;
+                color: $text-color;
+                text-transform: capitalize;
+
+                .card {
+                    position: relative;
+                    $size: 20vw;
+                    $max-size: 400px;
+                    width: $size;
+                    height: calc($size * 1.6);
+                    max-width: $max-size;
+                    max-height: calc($max-size * 1.6);
+                    border-radius: 20px;
+                    transition: 0.4s;
+                    border-width: 4px;
+                    border-style: solid;
+                    padding-top: 120%;
+                    font-size: 2vw;
+
+                    img {
+                        width: 60%;
+                        position: absolute;
+                        top: 10%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
+                    }
+                }}
+
+            a {:hover {
+                transform: translateY(-6px);
+                border: none;
+            }}
+            @mixin card-hover($color) {
+                box-shadow: 0 3px 10px $color;
+                &:hover {background-color: $color; box-shadow: none;}
+            }
+
+            :first-child .card{
+                border-color: $blue;
+                @include card-hover($blue)
+            }
+            :nth-child(2) .card{
+                border-color: $purple;
+                @include card-hover($purple)
+            }
+            :nth-child(3) .card{
+                border-color: $orange;
+                @include card-hover($orange)
+            }
+        }
+    }
+
+    #astrosign-container {
+        display: flex;
+
+        #circle {
+            position: relative;
+            padding: 0;
+            margin: 1em auto;
+            width: 80vh;
+            height: 80vh;
+            border-radius: 50%;
+            list-style: none;
+            overflow: hidden;
+
+            #sign-wheel{
+                :first-child{transform: rotate(0deg) skewY(-60deg);}
+                :nth-child(2) {transform: rotate(30deg) skewY(-60deg);}
+                :nth-child(3) {transform: rotate(60deg) skewY(-60deg);}
+                :nth-child(4) {transform: rotate(90deg) skewY(-60deg);}
+                :nth-child(5) {transform: rotate(120deg) skewY(-60deg);}
+                :nth-child(6) {transform: rotate(150deg) skewY(-60deg);}
+                :nth-child(7) {transform: rotate(180deg) skewY(-60deg);}
+                :nth-child(8) {transform: rotate(210deg) skewY(-60deg);}
+                :nth-child(9) {transform: rotate(240deg) skewY(-60deg);}
+                :nth-child(10) {transform: rotate(270deg) skewY(-60deg);}
+                :nth-child(11) {transform: rotate(300deg) skewY(-60deg);}
+                :nth-child(12) {transform: rotate(330deg) skewY(-60deg);}
+                
+                :nth-child(even) {.backdrop{background-color: #1a2641;}}
+                :nth-child(odd) {.backdrop{background-color: #18233a;}}
+            
+                li {
+                    overflow: hidden;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 50%;
+                    height: 50%;
+                    transform-origin: 0% 100%;
+
+                    .backdrop {
+                        position: absolute;
+                        left: -100%;
+                        width: 200%;
+                        height: 200%;
+                        transform: skewY(60deg) rotate(15deg);
+                        transition: 0.4s;
+                    }
+                }
+                
+                
+
+                .circle-cover {
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+                #cover1 {
+                    width: 33vh;
+                    height: 33vh;
+                    background-color: $background-color;
+                    transform: translate(70%, 70%);
+                    z-index: 2;
+                }
+                #cover2 {
+                    width: 40vh;
+                    height: 40vh;
+                    background-color: #141a27;
+                    transform: translate(49%, 49%);
+                    z-index: 1;
+                }
+            }
+
+            
+$circle-radius: 300px;
+$center-x: 330px;
+$center-y: 330px;
+
+
+@for $i from 1 through 12 {
+    $angle: 30deg * $i + 15deg;
+
+    .sign:nth-child(#{$i}) {
+        position: absolute;
+        top: $center-y - $circle-radius * sin($angle);
+        left: $center-x + $circle-radius * cos($angle);
+    }
+}
+
+#sign-images {
+    position: relative;
+    width: 80vh;
+    height: 80vh;
+}
+
+.sign {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+
+    img {
+        &:hover {
+            filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
+            cursor: pointer;
+        }
+        max-width: 100%;
+        height: auto;
+        transition: 0.4s;
+    }
+}
+        }
+
+        #info-card {
+            width: 50vw;
+            padding: 0 12rem;
+
+            #info-title{
+                margin-top: 20px;
+                font-size: 3rem;
+                font-family: poppins, consolas;
+                text-transform: capitalize;
+                text-align: center;
+                text-wrap: nowrap;
+
+                img {
+                    width: 4rem;
+                    margin-right: 1ch;
+                    transform: translateY(1rem);
+                    filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
+                }
+            }
+
+            .info-text{
+                font-family: bitter, poppins, consolas;
+                margin: 5rem 0;
+            }
+        }
+    }
+
+    #tarot-container {
+        max-height: calc(100vh - 350px);
+
+        #text{
+            font-size: 3rem;
+            color: $pink;
+            text-align: center;
+            margin: 3rem 0;
+
+            &::first-letter {font-size: 4rem; font-family: bitter;}
+        }
+
+        #tarot-cards{
+            min-height: 50vh;
+            display: flex;
+            justify-content: center;
+            transform: translateX(-25%);
+
+            @keyframes introduce-cards {
+                from{transform: rotate(0deg);}
+                to{transform: rotate(360deg);}
+            }
+
+            @mixin animation($n){
+                animation-delay: calc($n * 0.1s);
+            }
+        
+            .card {
+                background-color: transparent;
+                display: inline-block;
+                position: absolute;
+        
+                img {
+                    width: 25vh;
+                    height: 50vh;
+                    -o-object-fit: cover;
+                    object-fit: cover;
+                    border: 4px rgba(255, 215, 36, 0.6745098039) outset;
+                    border-radius: 10px;
+                    transition: 0.4s;
+                    animation: introduce-cards 3s cubic-bezier(.53,.05,0,1.01);
+            
+                    &:hover {
+                        transform: translateY(-20px);
+                        cursor: pointer;
+                    }
+                }
+
+            }
+            :first-child.card img{@include animation(1);}
+            :nth-child(2).card img{@include animation(2);}
+            :nth-child(3).card img{@include animation(3);}
+            :nth-child(4).card img{@include animation(4);}
+            :nth-child(5).card img{@include animation(5);}
+            :nth-child(6).card img{@include animation(6);}
+            :nth-child(7).card img{@include animation(7);}
+            :nth-child(8).card img{@include animation(8);}
+            :nth-child(9).card img{@include animation(9);}
+            :nth-child(10).card img{@include animation(10);}
+            :nth-child(11).card img{@include animation(11);}
+            :nth-child(12).card img{@include animation(12);}
+        
+            @for $i from 1 through 12 {
+                .card:nth-child(#{$i}) {
+                transform: translateX(10vh * $i);
+                }
+            }
+        }
+    }
+
+    #destiny-container {
+        display: flex;
+        margin: 10vh 0;
+        justify-content: center;
+        gap: 2vw;
+
+        .card{
+            width: 30vh;
+            height: 60vh;
+
+            img {
+                width: 30vh;
+                height: 60vh;
+                object-fit: cover;
+                border: 4px rgba(255, 215, 36, 0.6745098039) outset;
+                border-radius: 10px;
+            }
+        }
+
+        #text-box{
+            flex-basis: 70%;
+            width: 60vw;
+            max-width: 90vh;
+
+            #destiny-header{
+                font-size: 5rem;
+                text-transform: uppercase;
+            }
+            #destiny-text{
+                font-family: bitter, poppins, consolas;
+            }
+        }
+    }
+
+    #contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        margin-top: 3rem;
+        .text{
+            font-size: 3rem;
+            color: $orange;
+            text-transform: capitalize;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            font-size: 2rem;
+            text-transform: capitalize;
+
+            div {
+                margin: 10px 0;
+                display: flex;
+                gap: 20px;
+                &#comment{flex-direction: column;}
+
+                span{
+                    width: 6ch;
+                }
+                input{
+                    font-family: bitter, poppins, consolas;
+                    font-size: 1.5rem;
+                    padding-left: 1ch;
+                }
+                ::content{font-size: large;}
+            }
+
+            #comment{
+                ::placeholder{font-size: 1rem;}
+                textarea{
+                    resize: none;
+                    font-family: bitter, poppins, consolas;
+                    font-size: 1.5rem;
+                    padding: 1ch;
+                }
+            }
+            #bottom-fields{
+                display: flex;
+                justify-content: space-between;
+            }
+            #rating{
+                select{border-radius: 4px;}
+            }
+            #buttons{
+                align-self: center;
+
+                input {
+                    font-size: 2rem;
+                    font-family: bitter, poppins, consolas;
+                    padding: 0 10px;
+                    text-transform: capitalize;
+                    color: $text-color;
+                    background-color: $marine-blue;
+                    border: $text-color 2px solid;
+                    border-radius: 4px;
+                    transition: 0.4s;
+
+                    &:hover {
+                        color: $pink;
+                        background-color: transparent;
+                        border-color: $pink;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    .text {
+        font-size: clamp(17px, 2vw, 1.5rem);
+    }
+}
+
+footer {
+    position: relative;
+    height: 150px;
+    width: 100%;
+    background-color: #000000ab;
+    overflow: hidden;
+    text-align: center;
+
+    @media only screen and (orientation: portrait) {
+        display: flex;
+        align-items: center;
+
+        .text {flex: 1;}
+    }
+
+    .text {
+        color: $text-color;
+        font-size: 1rem;
+        margin: 3rem 0;
+    }
+
+    .anchor {
+        filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
+
+        
+
+        @media only screen and (orientation: landscape) {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(-10vw, -40%) rotate(-45deg);
+        }
+        @media only screen and (orientation: portrait) {
+            position: relative;
+            transform: rotate(-45deg);
+            padding-right: 2vw;
+        }
+        
+        * {
+            transition: 1s;
+
+            :hover {
+                transform: rotate(45deg);
+                text-shadow: 0 0 30px 30px white;
+            }
+        }
+
+    }
+}
+
+body#index {
+    @media only screen and (min-width: 970px) {
+        footer {
+            position: absolute;
+            top: calc(80vw);
+        }
+    }
+
+    @media only screen and (max-width: 970px) {
+        footer {
+            position: fixed;
+            bottom: 0;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+    :root {
+        $orbit1-diameter: 16vh;
+        $orbit2-diameter: 25vh;
+        $orbit3-diameter: 37vh;
+        $orbit4-diameter: 44vh;
+        $orbit5-diameter: 60vh;
+        $orbit6-diameter: 71vh;
+        $orbit7-diameter: 88vh;
+        $orbit8-diameter: 102vh;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    :root {
+        $orbit1-diameter: 16vw;
+        $orbit2-diameter: 25vw;
+        $orbit3-diameter: 37vw;
+        $orbit4-diameter: 44vw;
+        $orbit5-diameter: 60vw;
+        $orbit6-diameter: 71vw;
+        $orbit7-diameter: 88vw;
+        $orbit8-diameter: 102vw;
+    }
+}
+
+#solar-system {
+    .title{
+        $default-text-shadow: 10px 10px 30px black;
+        @keyframes header-animation {
+            $offset: 0.5vw;
+            0% {bottom: 0;}
+            10% {color: $orange; bottom: $offset;}
+            20% {color: $marine-blue; text-shadow: 0 0 3px $orange; bottom: 0;}
+            30% {color: $purple; text-shadow: 0 0 3px $marine-blue; bottom: $offset;}
+            40% {color: $pink; text-shadow: 0 0 3px $purple; bottom: 0;}
+            50% {color: $blue; text-shadow: 0 0 3px $pink; bottom: $offset;}
+            60% {color: $blueberry; text-shadow: 0 0 3px $blue; bottom: 0;}
+            70% {color: $orange; text-shadow: 0 0 3px $blueberry; bottom: $offset;}
+            80% {color: $purple; text-shadow: 0 0 3px $orange; bottom: 0;}
+            85% {color: $gray; text-shadow: 0 0 3px $purple; bottom: $offset;}
+            100% {text-shadow: $default-text-shadow; bottom: 0;}
+        }
+        
+        $line-height: calc(20vw + 10vh);
+        text-align: center;
+        width: 80vw;
+        font-size: 5vw;
+        font-weight: 200;
+        color: #f0f8ff9c;
+        line-height: $line-height;
+        user-select: none;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: calc($line-height / -2 * 2);
+        margin-left: calc(80vw / -2);
+
+        span:not(:last-child){animation: header-animation 2s ease-in-out both;}
+
+        @for $i from 1 through 10 {
+            span:nth-child(#{$i}) {
+                animation-delay: calc($i * 0.1s);
+                position: relative;
+                text-shadow: $default-text-shadow;
+                @if $i >= 6{color: #e2e2e293;}
+                @else {font-weight: 400;}
+            }
+        }
+
+        @media (min-width: 1800px) {
+            margin-top: calc($line-height / -2 * 1.5);
+        }
+
+        :not(:last-child){
+            color: $transparent-white;
+            font-size: 10vw;
+            font-weight: 300;
+            
+            &:first-child{text-transform: capitalize;}
+        }
+    }
+    
+
+
+
+    $planet1-color: #2f4061; // #808080;
+    $planet2-color: #474569; // #fd9800;
+    $planet3-color: #474569; // #3aa83a;
+    $planet4-color: #2f4061; // #d15631;
+    $planet5-color: #2f4061; // #cc8d2d;
+    $planet6-color: #474569; // #d8d0a5;
+    $planet7-color: #2f4061; // #b8fff9;
+    $planet8-color: #474569; // #205bff;
+
+    $planet1-diameter: 10px;
+    $planet2-diameter: 20px;
+    $planet3-diameter: 20px;
+    $planet4-diameter: 17px;
+    $planet5-diameter: 30px;
+    $planet6-diameter: 27px;
+    $planet7-diameter: 25px;
+    $planet8-diameter: 25px;
+    
+    $sun-diameter: 10vw;
+    $sun-color: #18233a;
+    $orbit-color: #18233a;
+
+    @mixin position-center($adjust: none, $diameter: none){
+        position: absolute;
+        top: calc(50% + 10vw);
+        left: 50%;
+        @if $adjust != none {
+            margin-top: calc($diameter / -2);
+            margin-left: calc($diameter / -2);
+        }
+    }
+    @mixin celestial-object($diameter, $color){
+        @include position-center($diameter, center);
+        width: $diameter;
+        height: $diameter;
+        background-color: $color;
+        border-radius: 50%;
+        box-shadow: 0 0 20px 1px $color;
+    }
+    @mixin orbit-size($diameter){
+        width: $diameter;
+        height: $diameter;
+    }
+    @keyframes orbit1 {
+            from {transform: rotate(0deg) translateX(calc($orbit1-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit1-diameter / 2));}
+    }
+    @keyframes orbit2 {
+            from {transform: rotate(0deg) translateX(calc($orbit2-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit2-diameter / 2));}
+    }
+    @keyframes orbit3 {
+            from {transform: rotate(0deg) translateX(calc($orbit3-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit3-diameter / 2));}
+    }
+    @keyframes orbit4 {
+            from {transform: rotate(0deg) translateX(calc($orbit4-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit4-diameter / 2));}
+    }
+    @keyframes orbit5 {
+            from {transform: rotate(0deg) translateX(calc($orbit5-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit5-diameter / 2));}
+    }
+    @keyframes orbit6 {
+            from {transform: rotate(0deg) translateX(calc($orbit6-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit6-diameter / 2));}
+    }
+    @keyframes orbit7 {
+            from {transform: rotate(0deg) translateX(calc($orbit7-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit7-diameter / 2));}
+    }
+    @keyframes orbit8 {
+            from {transform: rotate(0deg) translateX(calc($orbit8-diameter / 2));}
+            to {transform: rotate(360deg) translateX(calc($orbit8-diameter / 2));}
+    }
+        
+    #sun {
+        @include celestial-object($sun-diameter, $sun-color);
+        @include position-center(center, $sun-diameter);
+        box-shadow: 0 0 30px 30px #00000083;
+    }
+
+    #glow {
+        :nth-child(1){
+            z-index: -2;
+            @include celestial-object(30vw, #10151f65);
+            @include position-center(center, 30vw);
+        }
+        :nth-child(2){
+            z-index: -3;
+            @include celestial-object(50vw, #0f121d);
+            @include position-center(center, 50vw);
+        }
+        :nth-child(3){
+            z-index: -4;
+            @include celestial-object(80vw, #111320d7);
+            @include position-center(center, 80vw);
+        }
+        
+    }
+
+    .orbit {
+        border: 2px dashed $orbit-color;
+        border-radius: 50%;
+        z-index: -1;
+
+        &.planet-1 {@include orbit-size($orbit1-diameter); @include position-center(center, $orbit1-diameter);}
+        &.planet-2 {@include orbit-size($orbit2-diameter); @include position-center(center, $orbit2-diameter);}
+        &.planet-3 {@include orbit-size($orbit3-diameter); @include position-center(center, $orbit3-diameter);}
+        &.planet-4 {@include orbit-size($orbit4-diameter); @include position-center(center, $orbit4-diameter);}
+        &.planet-5 {@include orbit-size($orbit5-diameter); @include position-center(center, $orbit5-diameter);}
+        &.planet-6 {@include orbit-size($orbit6-diameter); @include position-center(center, $orbit6-diameter);}
+        &.planet-7 {@include orbit-size($orbit7-diameter); @include position-center(center, $orbit7-diameter);}
+        &.planet-8 {@include orbit-size($orbit8-diameter); @include position-center(center, $orbit8-diameter);}
+    }
+
+    .planet {
+        z-index: -1;
+
+        &.planet-1 {
+            @include celestial-object($planet1-diameter, $planet1-color); 
+            @include position-center(center, $planet1-diameter);
+            animation: orbit1 2s linear reverse infinite;
+        }
+        &.planet-2 {
+            @include celestial-object($planet2-diameter, $planet2-color); 
+            @include position-center(center, $planet2-diameter); 
+            animation: orbit2 6s linear infinite;
+        }
+        &.planet-3 {
+            @include celestial-object($planet3-diameter, $planet3-color); 
+            @include position-center(center, $planet3-diameter); 
+            animation: orbit3 4s linear reverse infinite;
+        }
+        &.planet-4 {
+            @include celestial-object($planet4-diameter, $planet4-color); 
+            @include position-center(center, $planet4-diameter); 
+            animation: orbit4 12s linear reverse infinite;
+        }
+        &.planet-5 {
+            @include celestial-object($planet5-diameter, $planet5-color); 
+            @include position-center(center, $planet5-diameter); 
+            animation: orbit5 10s linear infinite;
+        }
+        &.planet-6 {
+            @include celestial-object($planet6-diameter, $planet6-color); 
+            @include position-center(center, $planet6-diameter); 
+            animation: orbit6 30s linear reverse infinite;
+        }
+        &.planet-7 {
+            @include celestial-object($planet7-diameter, $planet7-color); 
+            @include position-center(center, $planet7-diameter); 
+            animation: orbit7 20s linear reverse infinite;
+        }
+        &.planet-8 {
+            @include celestial-object($planet8-diameter, $planet8-color); 
+            @include position-center(center, $planet8-diameter); 
+            animation: orbit8 60s linear infinite;
+        }
+    }
+    
+
+}

@@ -25,7 +25,7 @@ var sign_definitions = {
     "aries" : "Energético e destemido, com uma natureza impulsiva e uma paixão por liderar e enfrentar novos desafios.",
     "taurus" : "Estável e paciente, valorizando segurança e conforto. São persistentes e leais, apreciando as coisas boas da vida.",
     "gemini" : "Curioso e versátil, adorando aprender e comunicar. São adaptáveis e sociáveis, sempre buscando novidades.",
-    "cancer" : "Censível e intuitivo, com um forte apego ao lar e à família. São protetores e empáticos, buscando segurança emocional.",
+    "cancer" : "Sensível e intuitivo, com um forte apego ao lar e à família. São protetores e empáticos, buscando segurança emocional.",
     "leo" : "Confiante e criativo, adorando ser o centro das atenções. São generosos e líderes naturais, com energia vibrante.",
     "virgo" : "Meticuloso e prático, com atenção aos detalhes. São analíticos e trabalhadores, buscando sempre a perfeição.",
     "libra" : "Busca equilíbrio e harmonia, sendo diplomático e justo. São sociáveis e cooperativos, apreciando a beleza e a paz.",
