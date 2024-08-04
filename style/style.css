@@ -26,6 +26,7 @@ body {
   font-family: poppins, consolas;
   color: azure;
   margin: 0;
+  min-height: 100vh;
 }
 
 header {
@@ -129,6 +130,7 @@ main #image-section {
 }
 main #image-section div {
   display: flex;
+  gap: 5vw;
 }
 main #image-section div img {
   flex-basis: 30%;
@@ -137,17 +139,23 @@ main #image-section div img {
   -o-object-fit: contain;
      object-fit: contain;
   border-radius: 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  pointer-events: none;
+  box-shadow: 0 0 40px black;
 }
 main #image-section div .text-section {
   flex: 1;
   display: flex;
+  gap: 0;
   flex-direction: column;
   color: azure;
-  padding: 10px 10vw;
+  padding: 10px 0 5vw;
   line-height: 2.5rem;
 }
 main #image-section div .text-section #section1-header {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 2vw, 3rem);
   text-align: center;
   height: 3rem;
   line-height: 3rem;
@@ -156,18 +164,36 @@ main #image-section div .text-section #section1-header {
   -webkit-text-decoration: underline #F24B78;
           text-decoration: underline #F24B78;
 }
+@media only screen and (orientation: portrait) {
+  main #image-section div .text-section #section1-header {
+    margin: 0 0 80px;
+  }
+}
 main #image-section div .text-section #section1-text {
   font-family: bitter, poppins, consolas;
 }
 main #image-section #section2 {
-  flex-direction: row-reverse;
   margin-bottom: 30px;
+}
+@media only screen and (orientation: landscape) {
+  main #image-section #section2 {
+    flex-direction: row-reverse;
+  }
 }
 main #image-section #section2 #section1-header {
   text-decoration-color: #F29D52;
 }
 main #image-section #section2 img {
   width: 50%;
+}
+@media only screen and (orientation: portrait) {
+  main #image-section div {
+    flex-direction: column;
+    align-items: center;
+  }
+  main #image-section ~ #card-section .card span {
+    display: none;
+  }
 }
 main #card-section {
   display: flex;
@@ -181,7 +207,9 @@ main #card-section #card-text {
   font-family: bitter, poppins, consolas;
   max-width: 70vw;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: clamp(20px, 2vw, 2rem);
+  font-weight: 500;
+  font-style: italic;
 }
 main #card-section #card-text span {
   text-align: center;
@@ -202,14 +230,25 @@ main #card-section #cards a {
   text-transform: capitalize;
 }
 main #card-section #cards a .card {
-  width: 250px;
-  height: 400px;
+  position: relative;
+  width: 20vw;
+  height: 32vw;
+  max-width: 400px;
+  max-height: 640px;
   border-radius: 20px;
   transition: 0.4s;
   border-width: 4px;
   border-style: solid;
-  padding-top: 300px;
-  font-size: 3rem;
+  padding-top: 120%;
+  font-size: 2vw;
+}
+main #card-section #cards a .card img {
+  width: 60%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
 }
 main #card-section #cards a :hover {
   transform: translateY(-6px);
@@ -217,21 +256,27 @@ main #card-section #cards a :hover {
 }
 main #card-section #cards :first-child .card {
   border-color: #305AD9;
+  box-shadow: 0 3px 10px #305AD9;
 }
 main #card-section #cards :first-child .card:hover {
   background-color: #305AD9;
+  box-shadow: none;
 }
 main #card-section #cards :nth-child(2) .card {
   border-color: #AF47D2;
+  box-shadow: 0 3px 10px #AF47D2;
 }
 main #card-section #cards :nth-child(2) .card:hover {
   background-color: #AF47D2;
+  box-shadow: none;
 }
 main #card-section #cards :nth-child(3) .card {
   border-color: #F29D52;
+  box-shadow: 0 3px 10px #F29D52;
 }
 main #card-section #cards :nth-child(3) .card:hover {
   background-color: #F29D52;
+  box-shadow: none;
 }
 main #astrosign-container {
   display: flex;
@@ -651,6 +696,9 @@ main #contact form #buttons input:hover {
   border-color: #F24B78;
   cursor: pointer;
 }
+main .text {
+  font-size: clamp(17px, 2vw, 1.5rem);
+}
 
 footer {
   position: relative;
@@ -660,6 +708,15 @@ footer {
   overflow: hidden;
   text-align: center;
 }
+@media only screen and (orientation: portrait) {
+  footer {
+    display: flex;
+    align-items: center;
+  }
+  footer .text {
+    flex: 1;
+  }
+}
 footer .text {
   color: aliceblue;
   font-size: 1rem;
@@ -667,37 +724,187 @@ footer .text {
 }
 footer .anchor {
   filter: invert(89%) sepia(2%) saturate(2424%) hue-rotate(194deg) brightness(104%) contrast(111%);
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translate(-10vw, -40%);
+}
+@media only screen and (orientation: landscape) {
+  footer .anchor {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-10vw, -40%) rotate(-45deg);
+  }
+}
+@media only screen and (orientation: portrait) {
+  footer .anchor {
+    position: relative;
+    transform: rotate(-45deg);
+    padding-right: 2vw;
+  }
 }
 footer .anchor * {
-  transition: 2s all;
+  transition: 1s;
 }
 footer .anchor * :hover {
-  transform: translateY(-6px) rotate(350deg);
+  transform: rotate(45deg);
+  text-shadow: 0 0 30px 30px white;
 }
 
-#offset-space-main {
-  position: absolute;
-  top: calc(51vw + 50vh - 150px);
+@media only screen and (min-width: 970px) {
+  body#index footer {
+    position: absolute;
+    top: 80vw;
+  }
+}
+@media only screen and (max-width: 970px) {
+  body#index footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
 
 #solar-system .title {
-  z-index: -200;
   text-align: center;
-  font-size: 4rem;
-  line-height: 65vh;
-  transform: translateY(-10vh);
+  width: 80vw;
+  font-size: 5vw;
+  font-weight: 200;
   color: rgba(240, 248, 255, 0.6117647059);
+  line-height: calc(20vw + 10vh);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: calc((20vw + 10vh) / -2 * 2);
+  margin-left: -40vw;
 }
-#solar-system .title::first-line {
+@keyframes header-animation {
+  0% {
+    bottom: 0;
+  }
+  10% {
+    color: #F29D52;
+    bottom: 0.5vw;
+  }
+  20% {
+    color: #182859;
+    text-shadow: 0 0 3px #F29D52;
+    bottom: 0;
+  }
+  30% {
+    color: #AF47D2;
+    text-shadow: 0 0 3px #182859;
+    bottom: 0.5vw;
+  }
+  40% {
+    color: #F24B78;
+    text-shadow: 0 0 3px #AF47D2;
+    bottom: 0;
+  }
+  50% {
+    color: #305AD9;
+    text-shadow: 0 0 3px #F24B78;
+    bottom: 0.5vw;
+  }
+  60% {
+    color: #495ABF;
+    text-shadow: 0 0 3px #305AD9;
+    bottom: 0;
+  }
+  70% {
+    color: #F29D52;
+    text-shadow: 0 0 3px #495ABF;
+    bottom: 0.5vw;
+  }
+  80% {
+    color: #AF47D2;
+    text-shadow: 0 0 3px #F29D52;
+    bottom: 0;
+  }
+  85% {
+    color: #1A151E;
+    text-shadow: 0 0 3px #AF47D2;
+    bottom: 0.5vw;
+  }
+  100% {
+    text-shadow: 10px 10px 30px black;
+    bottom: 0;
+  }
+}
+#solar-system .title span:not(:last-child) {
+  animation: header-animation 2s ease-in-out both;
+}
+#solar-system .title span:nth-child(1) {
+  animation-delay: 0.1s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  font-weight: 400;
+}
+#solar-system .title span:nth-child(2) {
+  animation-delay: 0.2s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  font-weight: 400;
+}
+#solar-system .title span:nth-child(3) {
+  animation-delay: 0.3s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  font-weight: 400;
+}
+#solar-system .title span:nth-child(4) {
+  animation-delay: 0.4s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  font-weight: 400;
+}
+#solar-system .title span:nth-child(5) {
+  animation-delay: 0.5s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  font-weight: 400;
+}
+#solar-system .title span:nth-child(6) {
+  animation-delay: 0.6s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  color: rgba(226, 226, 226, 0.5764705882);
+}
+#solar-system .title span:nth-child(7) {
+  animation-delay: 0.7s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  color: rgba(226, 226, 226, 0.5764705882);
+}
+#solar-system .title span:nth-child(8) {
+  animation-delay: 0.8s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  color: rgba(226, 226, 226, 0.5764705882);
+}
+#solar-system .title span:nth-child(9) {
+  animation-delay: 0.9s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  color: rgba(226, 226, 226, 0.5764705882);
+}
+#solar-system .title span:nth-child(10) {
+  animation-delay: 1s;
+  position: relative;
+  text-shadow: 10px 10px 30px black;
+  color: rgba(226, 226, 226, 0.5764705882);
+}
+@media (min-width: 1800px) {
+  #solar-system .title {
+    margin-top: calc((20vw + 10vh) / -2 * 1.5);
+  }
+}
+#solar-system .title :not(:last-child) {
   color: rgba(240, 248, 255, 0.8470588235);
-  font-size: 7rem;
+  font-size: 10vw;
+  font-weight: 300;
 }
-#solar-system * :not(.title) {
-  z-index: -1;
+#solar-system .title :not(:last-child):first-child {
+  text-transform: capitalize;
 }
 @keyframes orbit1 {
   from {
@@ -765,7 +972,7 @@ footer .anchor * :hover {
 }
 #solar-system #sun {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -775,15 +982,16 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #18233a;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -5vw;
   margin-left: -5vw;
+  box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.5137254902);
 }
 #solar-system #glow :nth-child(1) {
   z-index: -2;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -793,7 +1001,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px rgba(16, 21, 31, 0.3960784314);
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -15vw;
   margin-left: -15vw;
@@ -801,7 +1009,7 @@ footer .anchor * :hover {
 #solar-system #glow :nth-child(2) {
   z-index: -3;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -811,7 +1019,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #0f121d;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -25vw;
   margin-left: -25vw;
@@ -819,7 +1027,7 @@ footer .anchor * :hover {
 #solar-system #glow :nth-child(3) {
   z-index: -4;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -829,7 +1037,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px rgba(17, 19, 32, 0.8431372549);
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -40vw;
   margin-left: -40vw;
@@ -837,12 +1045,13 @@ footer .anchor * :hover {
 #solar-system .orbit {
   border: 2px dashed #18233a;
   border-radius: 50%;
+  z-index: -1;
 }
 #solar-system .orbit.planet-1 {
   width: 16vw;
   height: 16vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -8vw;
   margin-left: -8vw;
@@ -851,7 +1060,7 @@ footer .anchor * :hover {
   width: 25vw;
   height: 25vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -12.5vw;
   margin-left: -12.5vw;
@@ -860,7 +1069,7 @@ footer .anchor * :hover {
   width: 37vw;
   height: 37vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -18.5vw;
   margin-left: -18.5vw;
@@ -869,7 +1078,7 @@ footer .anchor * :hover {
   width: 44vw;
   height: 44vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -22vw;
   margin-left: -22vw;
@@ -878,7 +1087,7 @@ footer .anchor * :hover {
   width: 60vw;
   height: 60vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -30vw;
   margin-left: -30vw;
@@ -887,7 +1096,7 @@ footer .anchor * :hover {
   width: 71vw;
   height: 71vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -35.5vw;
   margin-left: -35.5vw;
@@ -896,7 +1105,7 @@ footer .anchor * :hover {
   width: 88vw;
   height: 88vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -44vw;
   margin-left: -44vw;
@@ -905,14 +1114,17 @@ footer .anchor * :hover {
   width: 102vw;
   height: 102vw;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -51vw;
   margin-left: -51vw;
 }
+#solar-system .planet {
+  z-index: -1;
+}
 #solar-system .planet.planet-1 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -922,7 +1134,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #2f4061;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -5px;
   margin-left: -5px;
@@ -930,7 +1142,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-2 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -940,7 +1152,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #474569;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -10px;
   margin-left: -10px;
@@ -948,7 +1160,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-3 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -958,7 +1170,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #474569;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -10px;
   margin-left: -10px;
@@ -966,7 +1178,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-4 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -976,7 +1188,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #2f4061;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -8.5px;
   margin-left: -8.5px;
@@ -984,7 +1196,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-5 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -994,7 +1206,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #2f4061;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -15px;
   margin-left: -15px;
@@ -1002,7 +1214,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-6 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -1012,7 +1224,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #474569;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -13.5px;
   margin-left: -13.5px;
@@ -1020,7 +1232,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-7 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -1030,7 +1242,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #2f4061;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -12.5px;
   margin-left: -12.5px;
@@ -1038,7 +1250,7 @@ footer .anchor * :hover {
 }
 #solar-system .planet.planet-8 {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: calc(center / -2);
   margin-left: calc(center / -2);
@@ -1048,7 +1260,7 @@ footer .anchor * :hover {
   border-radius: 50%;
   box-shadow: 0 0 20px 1px #474569;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 10vw);
   left: 50%;
   margin-top: -12.5px;
   margin-left: -12.5px;
